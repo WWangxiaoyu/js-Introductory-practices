@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>轮播图</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            #outer{
+                width: 520px;
+                height: 333px;
+                margin: 50px auto;
+                background-color: rgb(155, 77, 155);
+                padding: 10px 0;
+            }
+
+            #imgList{
+                list-style: none;
+                width: 2600px;
+            }
+
+            #imgList li{
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 创建一个外部的div，来作为大的容器 -->
+        <div id="outer">
+            <!-- ul用来放图片 -->
+            <ul id="imgList">
+                <li><img style="width:500px; height: 333px"></li>
+                <li><img style="width:500px; height: 333px"></li>
+                <li><img style="width:500px; height: 333px"></li>
+                <li><img style="width:500px; height: 333px"></li>
+                <li><img style="width:500px; height: 333px"></li>
+            </ul>
+        </div>
+        <script>
+            //逻辑：涉及到时间（定时器？），每到500ms图片整个向左移动500px
+            var imglist = document.getElementById('imgList');
+
+        </script>
+    </body>
+</html>

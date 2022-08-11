@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>百度搜索数据展示</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="search">
+                <input type="text" id="val" placeholder="请输入课程">
+                <input type="submit" id="sub">
+            </div>
+            <div class="show" id="show">
+                <!-- <p>aaa</p>
+                <p>aaa</p> -->
+            </div>
+        </div>
+        <script>
+            let arr = ['占位占位占位占位','占位占位占位占位','占位占位占位占位','占位占位占位占位'];
+
+            //逻辑：1.先完成 展示区的显示或隐藏
+            let input = document.getElementById('val');
+            let show = document.getElementById('show');
+            //input.onkeyup：当用户释放键盘按键时触发
+            input.onkeyup = function(){
+                show.style.display = 'block';
+                //input.value 和 arr的每一项进行匹配 indexOf()匹配不到则为-1
+                let str = '';
+                arr.forEach((item)=>{
+                    let res = item.indexOf(input.value);
+                    if(res != -1){
+                        str += '<p>' + item + '</p>';
+                    }
+                })
+                // console.log(str);
+                // 如果input.value为空或者str为false，则给用户提示
+                if(!input.value || !str){
+                    show.innerHTML = '<p>暂无结果</p>';
+                }else{
+                    show.innerHTML = str;
+                }
+
+            }
+            //input.onblur：事件会在对象失去焦点时发生
+            input.onblur = function(){
+                show.style.display = 'none';
+                input.value = '';
+            }
+        </script>
+    </body>
+</html>

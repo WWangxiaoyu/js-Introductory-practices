@@ -37,6 +37,24 @@
                     }
                     return str;
                 }
+                document.getElementById('checkCode').innerText = res;
+                //点击事件
+                document.getElementById('linkbt').onclick = function(){
+                    document.getElementById('checkCode').innerText = getCode();
+                }
+
+                //提交进行对比
+                document.getElementById('Button1').onclick = function(){
+                    var code = document.getElementById('checkCode').innerText;
+                    var inputCode = document.getElementById('inputCode').value;
+                    if(code != inputCode){
+                        alert('您输入的密码不正确');
+                        document.getElementById('inputCode').value = '';
+                        return false;
+                    }
+                }
+
+
             }
 
 

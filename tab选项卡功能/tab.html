@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>tab选项卡功能</title>
+        <style>
+            ul{
+                overflow: hidden;
+            }
+
+            ul, li{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            li{
+                width: 100px;
+                height: 40px;
+                background-color: #eee;
+                border: 1px solid #ccc;
+                float: left;
+                line-height: 40px;
+                text-align: center;
+            }
+
+            div{
+                width: 406px;
+                height: 406px;
+                border: 1px solid #ccc;
+            }
+
+            img{
+                width: 406px;
+                height: 406px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>大橘</li>
+            <li>狸花</li>
+            <li>英短</li>
+            <li>美短</li>
+        </ul>
+        <div>
+            <img src="#" alt="" style="background-color:red">
+            <img src="#" alt="" style="background-color:green">
+            <img src="#" alt="" style="background-color:blue">
+            <img src="#" alt="" style="background-color:yellow">
+        </div>
+
+        <script>
+            //逻辑：1.鼠标移动到哪个选项卡上，该选项卡的背景颜色就要改变；2.对应的内容区域要显示图片
+            //移出时，背景颜色恢复，对应内容区域隐藏
+            let lis = document.getElementsByTagName('li');
+            let imgs = document.getElementsByTagName('img');
+
+            for(let i=0; i<lis.length; i++){
+                //先进行元素数组 下标的设置
+                //lis[i]的下标和img标签对应
+                lis[i].index = i;
+
+                lis[i].onmouseover = function(){
+                    //这里的this，指的是此方法的拥有者lis[i]
+                    this.style.backgroundColor = 'grey';
+                    // console.log(this.index);
+                    // 先把所有的图片都隐藏，再让对应的图片出现
+                    for(let j=0; j<imgs.length; j++){
+                        imgs[j].style.display = 'none';
+                    }
+
+                    imgs[this.index].style.display = 'block';
+
+                } 
+                lis[i].onmouseout = function(){
+                    lis[i].style.backgroundColor = '#eee';
+                }
+            }
+            
+
+        </script>
+
+    </body>
+</html>

@@ -32,12 +32,18 @@
         //逻辑：1.利用定时器对width、百分数进行递增操作；2.当变量递增到400px时，就停止定时器
         let but = document.getElementById('but');
         let div = document.getElementsByTagName('div');
+        let span = document.getElementsByTagName('span');
         let timer = null;
         but.onclick = function(){
             let num = 0;
             if(timer==null){
                 timer = setInterval(()=>{
-                    
+                    num+=10;
+                    div[1].style.width = num + 'px';
+                    span[0].innerText = Math.floor(num/400*100);
+                    if(num==400){
+                    clearInterval(timer);
+                }
                 },100);
             }
         }
